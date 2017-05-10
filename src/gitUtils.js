@@ -8,7 +8,9 @@ function ensureRelativePath(s) {
   return s;
 }
 
-async function getAllStaged() {
+const GIT_EMPTY_HASH = "4b825dc642cb6eb9a060e54bf8d69288fbee4904";
+
+async function getAllStagedFromRevision(revision) {
   const diffOut =
     (await spawn(
       "git",
@@ -17,13 +19,29 @@ async function getAllStaged() {
         "--cached",
         "--name-only",
         "--diff-filter=ACDMRTUXB",
-        "HEAD"
+        revision,
+        "--"
       ],
       {
         encoding: "utf8"
       }
     )) || "";
   return diffOut.split("\n").filter(s => s !== "");
+}
+
+async function getAllStaged() {
+  try {
+    return await getAllStagedFromRevision("HEAD");
+  } catch (e) {
+    // istanbul ignore else: simple exception passthrough
+    if (
+      e.stderr &&
+      e.stderr.toString().indexOf("fatal: bad revision 'HEAD'") !== -1
+    ) {
+      return await getAllStagedFromRevision(GIT_EMPTY_HASH);
+    }
+    throw e;
+  }
 }
 
 async function getFullyStaged(
