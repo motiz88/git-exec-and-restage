@@ -1,0 +1,54 @@
+{
+  "name": "git-exec-and-restage",
+  "description": "Safely amend Git commits after applying auto-fixing tools",
+  "version": "0.0.0-development",
+  "main": "dist",
+  "bin": "dist/index.js",
+  "scripts": {
+    "build": "babel src --copy-files --out-dir dist",
+    "watch": "npm run build -- --watch",
+    "prepublish": "npm run build",
+    "dev": "babel-node src",
+    "test": "if-env CI=true && npm run ci || jest --watchAll",
+    "ci": "jest --ci && codecov",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "files": [
+    "dist"
+  ],
+  "author": "Moti Zilberman <motiz88@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/motiz88/git-exec-and-restage.git"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-preset-env": "1",
+    "babel-preset-stage-0": "^6.24.1",
+    "codecov": "^2.2.0",
+    "if-env": "^1.0.0",
+    "jest": "^20.0.0",
+    "mock-bin": "^1.0.1",
+    "mock-git": "^1.0.3",
+    "mz": "^2.6.0",
+    "tmp-promise": "^1.0.3",
+    "semantic-release": "^6.3.6"
+  },
+  "engines": {
+    "node": ">=6",
+    "npm": ">=3"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.23.0",
+    "cross-spawn-promise": "^0.10.1",
+    "semantic-release-cli": "^3.0.3"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/dist/"
+    ],
+    "collectCoverage": true
+  }
+}

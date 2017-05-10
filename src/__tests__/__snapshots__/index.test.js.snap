@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`git-exec-and-restage no command, no args and no files staged 1`] = `[Error: Usage: git-exec-and-restage <command> [...command-args --] [...files]]`;
+
+exports[`git-exec-and-restage with command and arguments, no files 1`] = `
+Array [
+  "git diff-index --cached --name-only --diff-filter=ACDMRTUXB",
+  "git diff --name-only --diff-filter=ACDMRTUXB",
+  "prettier --write",
+]
+`;
+
+exports[`git-exec-and-restage with command+args, files implicit 1`] = `
+Array [
+  "git diff-index --cached --name-only --diff-filter=ACDMRTUXB",
+  "git diff --name-only --diff-filter=ACDMRTUXB fullystaged.js partiallystaged.js",
+  "prettier --write",
+  "git add fullystaged.js",
+]
+`;
+
+exports[`git-exec-and-restage with command+args, mix of fully and partially staged files 1`] = `
+Array [
+  "git diff --name-only --diff-filter=ACDMRTUXB fullystaged.js partiallystaged.js",
+  "prettier --write fullystaged.js partiallystaged.js",
+  "git add fullystaged.js",
+]
+`;
+
+exports[`git-exec-and-restage with command+args, pick one of multiple files 1`] = `
+Array [
+  "git diff --name-only --diff-filter=ACDMRTUXB fullystaged1.js",
+  "prettier --write fullystaged1.js",
+  "git add fullystaged1.js",
+]
+`;
+
+exports[`git-exec-and-restage with command, arguments, fully staged file, no partials 1`] = `
+Array [
+  "git diff --name-only --diff-filter=ACDMRTUXB fullystaged.js",
+  "prettier --write fullystaged.js",
+  "git add fullystaged.js",
+]
+`;
+
+exports[`git-exec-and-restage with command, no args and no files 1`] = `
+Array [
+  "git diff-index --cached --name-only --diff-filter=ACDMRTUXB",
+  "git diff --name-only --diff-filter=ACDMRTUXB",
+  "prettier",
+]
+`;
