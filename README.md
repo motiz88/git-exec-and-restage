@@ -51,7 +51,12 @@ Automatically e.g. with `lint-staged`:
 
 ## Contribute
 
-PRs accepted.
+PRs welcome.
+
+## Acknowledgements
+
+This package owes a great deal to Matthew Chase Whittemore's
+[`staged-git-files`](https://github.com/mcwhittemore/staged-git-files).
 
 ## License
 
