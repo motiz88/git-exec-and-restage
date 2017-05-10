@@ -18,6 +18,7 @@ _partially_ changed the Git index will remain untouched.
 - [Install](#install)
 - [Usage](#usage)
 - [Contribute](#contribute)
+- [Acknowledgements](#acknowledgements)
 - [License](#license)
 
 ## Install
