@@ -10,6 +10,14 @@ Array [
 ]
 `;
 
+exports[`git-exec-and-restage with command+args and mixed status, absolute paths 1`] = `
+Array [
+  "git diff --name-only --diff-filter=ACDMRTUXB fullystaged.js partiallystaged.js",
+  "prettier --write /path/to/repo/fullystaged.js /path/to/repo/partiallystaged.js",
+  "git add fullystaged.js",
+]
+`;
+
 exports[`git-exec-and-restage with command+args, files implicit 1`] = `
 Array [
   "git diff-index --cached --name-only --diff-filter=ACDMRTUXB HEAD",

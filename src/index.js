@@ -2,7 +2,7 @@
 
 import spawn from "cross-spawn-promise";
 import CliError from "./CliError";
-import { getAllStaged, getFullyStaged } from "./gitUtils";
+import { getAllStaged, getFullyStaged, stageFiles } from "./gitUtils";
 
 export { CliError };
 
@@ -18,7 +18,7 @@ async function main(argv = []) {
   const fullyStaged = await getFullyStaged(files);
   await spawn(command, commandArgs.concat(files), { stdio: "inherit" });
   if (fullyStaged.length) {
-    await spawn("git", ["add", ...fullyStaged], { stdio: "inherit" });
+    await stageFiles(fullyStaged);
   }
 }
 

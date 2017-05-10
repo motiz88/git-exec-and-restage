@@ -1,5 +1,6 @@
 import gitExecAndRestage from "../";
 import TestEnvironment from "TestEnvironment";
+import path from "path";
 
 describe("git-exec-and-restage", () => {
   const env = new TestEnvironment();
@@ -20,11 +21,13 @@ describe("git-exec-and-restage", () => {
   });
   it("with command, arguments, fully staged file, no partials", async () => {
     await env.mockBin("prettier");
+    await env.setAllStagedFiles(["fullystaged.js"]);
     await gitExecAndRestage(["prettier", "--write", "--", "fullystaged.js"]);
     expect(await env.log).toMatchSnapshot();
   });
   it("with command+args, mix of fully and partially staged files", async () => {
     await env.mockBin("prettier");
+    await env.setAllStagedFiles(["fullystaged.js", "partiallystaged.js"]);
     await env.setPartialFiles(["partiallystaged.js"]);
     await gitExecAndRestage([
       "prettier",
@@ -52,6 +55,19 @@ describe("git-exec-and-restage", () => {
     ]);
     await env.setPartialFiles(["partiallystaged1.js", "partiallystaged2.js"]);
     await gitExecAndRestage(["prettier", "--write", "--", "fullystaged1.js"]);
+    expect(await env.log).toMatchSnapshot();
+  });
+  it("with command+args and mixed status, absolute paths", async () => {
+    await env.mockBin("prettier");
+    await env.setAllStagedFiles(["fullystaged.js", "partiallystaged.js"]);
+    await env.setPartialFiles(["partiallystaged.js"]);
+    await gitExecAndRestage([
+      "prettier",
+      "--write",
+      "--",
+      path.join(process.cwd(), "fullystaged.js"),
+      path.join(process.cwd(), "partiallystaged.js")
+    ]);
     expect(await env.log).toMatchSnapshot();
   });
 });

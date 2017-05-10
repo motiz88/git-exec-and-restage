@@ -32,8 +32,9 @@
     "mock-bin": "^1.0.1",
     "mock-git": "^1.0.3",
     "mz": "^2.6.0",
-    "tmp-promise": "^1.0.3",
-    "semantic-release": "^6.3.6"
+    "pmock": "^0.2.3",
+    "semantic-release": "^6.3.6",
+    "tmp-promise": "^1.0.3"
   },
   "engines": {
     "node": ">=6",

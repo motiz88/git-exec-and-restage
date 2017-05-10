@@ -1,4 +1,12 @@
 import spawn from "cross-spawn-promise";
+import path from "path";
+
+function ensureRelativePath(s) {
+  if (path.isAbsolute(s)) {
+    return path.relative(process.cwd(), s);
+  }
+  return s;
+}
 
 async function getAllStaged() {
   const diffOut =
@@ -28,13 +36,36 @@ async function getFullyStaged(
   const diffOut =
     (await spawn(
       "git",
-      ["diff", "--name-only", "--diff-filter=ACDMRTUXB", ...files],
+      [
+        "diff",
+        "--name-only",
+        "--diff-filter=ACDMRTUXB",
+        ...files.map(filename => ensureRelativePath(filename))
+      ],
       {
         encoding: "utf8"
       }
     )) || "";
-  const notFullyStaged = new Set(diffOut.split("\n").filter(s => s !== ""));
-  return files.filter(file => !notFullyStaged.has(file));
+  const notFullyStaged = new Set(
+    diffOut
+      .split("\n")
+      .filter(s => s !== "")
+      .map(filename => path.resolve(process.cwd(), filename))
+  );
+  return files.filter(
+    file => !notFullyStaged.has(path.resolve(process.cwd(), file))
+  );
 }
 
-export { getAllStaged, getFullyStaged };
+async function stageFiles(
+  /* istanbul ignore next: convenience default */
+  files = []
+) {
+  await spawn(
+    "git",
+    ["add", ...files.map(filename => ensureRelativePath(filename))],
+    { stdio: "inherit" }
+  );
+}
+
+export { getAllStaged, getFullyStaged, stageFiles };

@@ -3,6 +3,7 @@ import mockBin from "mock-bin";
 import tmp from "tmp-promise";
 import path from "path";
 import fs from "mz/fs";
+import pmock from "pmock";
 
 export default class TestEnvironment {
   _unmock = [];
@@ -53,6 +54,8 @@ export default class TestEnvironment {
   async setup() {
     this._spyLogFile = await tmp.tmpName();
     this._unmock.push(await mockGit(this._makeSpyJs("git"), "add"));
+    const cwdMock = pmock.cwd("/path/to/repo");
+    this._unmock.push(() => cwdMock.reset());
     await this.setAllStagedFiles();
     await this.setPartialFiles();
   }
