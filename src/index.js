@@ -22,15 +22,17 @@ async function main(argv = []) {
   }
 }
 
-function parseArgs(argv) {
+export function parseArgs(argv) {
   const separatorPos = argv.lastIndexOf(ARG_SEPARATOR);
   if (separatorPos === -1) {
     const [command, ...files] = argv;
     return { command, commandArgs: [], files };
   }
   const command = argv[0];
-  const commandArgs = argv.slice(1, separatorPos);
-  const files = argv.slice(separatorPos + 1);
+  const commandArgs = argv
+    .slice(1, separatorPos)
+    .filter(s => s !== ARG_SEPARATOR);
+  const files = argv.slice(separatorPos + 1).filter(s => s !== ARG_SEPARATOR);
   return { command, commandArgs, files };
 }
 

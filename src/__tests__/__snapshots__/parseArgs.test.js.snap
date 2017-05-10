@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parseArgs command and 1 file 1`] = `
+Object {
+  "command": "prettier",
+  "commandArgs": Array [],
+  "files": Array [
+    "a.js",
+  ],
+}
+`;
+
+exports[`parseArgs command and 2 files 1`] = `
+Object {
+  "command": "prettier",
+  "commandArgs": Array [],
+  "files": Array [
+    "a.js",
+    "b.js",
+  ],
+}
+`;
+
+exports[`parseArgs command only 1`] = `
+Object {
+  "command": "prettier",
+  "commandArgs": Array [],
+  "files": Array [],
+}
+`;
+
+exports[`parseArgs command, 1 option and 1 file 1`] = `
+Object {
+  "command": "prettier",
+  "commandArgs": Array [
+    "--write",
+  ],
+  "files": Array [
+    "a.js",
+  ],
+}
+`;
+
+exports[`parseArgs command, 1 option, two separators, 1 file 1`] = `
+Object {
+  "command": "prettier",
+  "commandArgs": Array [
+    "--write",
+  ],
+  "files": Array [
+    "a.js",
+  ],
+}
+`;
+
+exports[`parseArgs command, separator and 1 file 1`] = `
+Object {
+  "command": "prettier",
+  "commandArgs": Array [],
+  "files": Array [
+    "a.js",
+  ],
+}
+`;
+
+exports[`parseArgs empty 1`] = `
+Object {
+  "command": undefined,
+  "commandArgs": Array [],
+  "files": Array [],
+}
+`;
