@@ -30,7 +30,7 @@
     "if-env": "^1.0.0",
     "jest": "^20.0.0",
     "mock-bin": "^1.0.1",
-    "mock-git": "^1.0.3",
+    "mock-git": "motiz88/mock-git",
     "mz": "^2.6.0",
     "pmock": "^0.2.3",
     "semantic-release": "^6.3.6",

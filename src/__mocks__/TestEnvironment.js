@@ -10,10 +10,18 @@ export default class TestEnvironment {
   _spyLogFile = undefined;
   __makeSpyJs = undefined;
 
-  async setAllStagedFiles(files = []) {
+  async setAllStagedFiles(files = [], failOnHead = false) {
     this._unmock.push(
       await mockGit(
-        `${this._makeSpyJs("git")} for (const file of ${JSON.stringify(files)}) console.log(file);`,
+        `${this._makeSpyJs("git")} 
+          ${failOnHead ? `
+            if (process.argv.indexOf("HEAD") > 1) {
+              console.error("fatal: bad revision 'HEAD'");
+              process.exitCode = 1;
+              return;
+            }
+          ` : ""}
+        for (const file of ${JSON.stringify(files)}) console.log(file);`,
         "diff-index"
       )
     );

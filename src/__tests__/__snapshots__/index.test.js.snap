@@ -27,6 +27,16 @@ Array [
 ]
 `;
 
+exports[`git-exec-and-restage with command+args, files implicit with invalid HEAD 1`] = `
+Array [
+  "git diff-index --cached --name-only --diff-filter=ACDMRTUXB HEAD --",
+  "git diff-index --cached --name-only --diff-filter=ACDMRTUXB 4b825dc642cb6eb9a060e54bf8d69288fbee4904 --",
+  "git diff --name-only --diff-filter=ACDMRTUXB fullystaged.js partiallystaged.js",
+  "prettier --write",
+  "git add fullystaged.js",
+]
+`;
+
 exports[`git-exec-and-restage with command+args, mix of fully and partially staged files 1`] = `
 Array [
   "git diff --name-only --diff-filter=ACDMRTUXB fullystaged.js partiallystaged.js",

@@ -45,6 +45,16 @@ describe("git-exec-and-restage", () => {
     await gitExecAndRestage(["prettier", "--write", "--"]);
     expect(await env.log).toMatchSnapshot();
   });
+  it.only("with command+args, files implicit with invalid HEAD", async () => {
+    await env.mockBin("prettier");
+    await env.setAllStagedFiles(
+      ["fullystaged.js", "partiallystaged.js"],
+      true /* fail on HEAD */
+    );
+    await env.setPartialFiles(["partiallystaged.js"]);
+    await gitExecAndRestage(["prettier", "--write", "--"]);
+    expect(await env.log).toMatchSnapshot();
+  });
   it("with command+args, pick one of multiple files", async () => {
     await env.mockBin("prettier");
     await env.setAllStagedFiles([

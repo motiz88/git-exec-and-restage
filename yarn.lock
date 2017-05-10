@@ -2977,9 +2977,9 @@ mock-bin@^1.0.0, mock-bin@^1.0.1:
     shelljs "^0.7.0"
     temp-write "^2.1.0"
 
-mock-git@^1.0.3:
+mock-git@motiz88/mock-git:
   version "1.0.3"
-  resolved "https://registry.yarnpkg.com/mock-git/-/mock-git-1.0.3.tgz#3f129e9e6e28a49cce52843fa2a6e1a6756cd2a3"
+  resolved "https://codeload.github.com/motiz88/mock-git/tar.gz/724e5c39dfc433c46aad7105ea3ca41045437537"
   dependencies:
     mock-bin "^1.0.0"
     shelljs "^0.7.0"
@@ -4245,10 +4245,6 @@ sshpk@^1.7.0:
     jodid25519 "^1.0.0"
     jsbn "~0.1.0"
     tweetnacl "~0.14.0"
-
-staged-git-files@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/staged-git-files/-/staged-git-files-0.0.4.tgz#d797e1b551ca7a639dec0237dc6eb4bb9be17d35"
 
 stealthy-require@^1.1.0:
   version "1.1.1"
