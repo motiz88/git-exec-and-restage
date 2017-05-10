@@ -10,5 +10,11 @@
       }
     ],
     "stage-0"
-  ]
+  ],
+  "sourceMaps": "inline",
+  "env": {
+    "production": {
+      "sourceMaps": false
+    }
+  }
 }

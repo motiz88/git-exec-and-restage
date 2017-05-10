@@ -7,10 +7,10 @@
   "scripts": {
     "build": "babel src --copy-files --out-dir dist",
     "watch": "npm run build -- --watch",
-    "prepublish": "npm run build",
+    "prepublish": "BABEL_ENV=production npm run build",
     "dev": "babel-node src",
     "test": "if-env CI=true && npm run ci || jest --watchAll",
-    "ci": "jest --ci && codecov",
+    "ci": "jest --ci --coverage && codecov",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "files": [
@@ -49,7 +49,6 @@
     "testPathIgnorePatterns": [
       "<rootDir>/node_modules/",
       "<rootDir>/dist/"
-    ],
-    "collectCoverage": true
+    ]
   }
 }
