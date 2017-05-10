@@ -4,7 +4,7 @@ exports[`git-exec-and-restage no command, no args and no files staged 1`] = `[Er
 
 exports[`git-exec-and-restage with command and arguments, no files 1`] = `
 Array [
-  "git diff-index --cached --name-only --diff-filter=ACDMRTUXB",
+  "git diff-index --cached --name-only --diff-filter=ACDMRTUXB HEAD",
   "git diff --name-only --diff-filter=ACDMRTUXB",
   "prettier --write",
 ]
@@ -12,7 +12,7 @@ Array [
 
 exports[`git-exec-and-restage with command+args, files implicit 1`] = `
 Array [
-  "git diff-index --cached --name-only --diff-filter=ACDMRTUXB",
+  "git diff-index --cached --name-only --diff-filter=ACDMRTUXB HEAD",
   "git diff --name-only --diff-filter=ACDMRTUXB fullystaged.js partiallystaged.js",
   "prettier --write",
   "git add fullystaged.js",
@@ -45,7 +45,7 @@ Array [
 
 exports[`git-exec-and-restage with command, no args and no files 1`] = `
 Array [
-  "git diff-index --cached --name-only --diff-filter=ACDMRTUXB",
+  "git diff-index --cached --name-only --diff-filter=ACDMRTUXB HEAD",
   "git diff --name-only --diff-filter=ACDMRTUXB",
   "prettier",
 ]

@@ -4,7 +4,13 @@ async function getAllStaged() {
   const diffOut =
     (await spawn(
       "git",
-      ["diff-index", "--cached", "--name-only", "--diff-filter=ACDMRTUXB"],
+      [
+        "diff-index",
+        "--cached",
+        "--name-only",
+        "--diff-filter=ACDMRTUXB",
+        "HEAD"
+      ],
       {
         encoding: "utf8"
       }
