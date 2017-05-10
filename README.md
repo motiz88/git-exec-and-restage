@@ -1,7 +1,8 @@
 # git-exec-and-restage
 
-[![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/git-exec-and-restage)
-[![Travis branch](https://img.shields.io/travis/motiz88/git-exec-and-restage/master.svg)](https://travis-ci.org/motiz88/git-exec-and-restage)
+[![npm](https://img.shields.io/npm/v/git-exec-and-restage.svg)](https://www.npmjs.com/package/git-exec-and-restage)
+[![Travis CI](https://img.shields.io/travis/motiz88/git-exec-and-restage/master.svg)](https://travis-ci.org/motiz88/git-exec-and-restage)
+[![Codecov](https://img.shields.io/codecov/c/github/motiz88/git-exec-and-restage/master.svg)](https://codecov.io/gh/motiz88/git-exec-and-restage/)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 > Safely amend Git commits after applying auto-fixing tools
