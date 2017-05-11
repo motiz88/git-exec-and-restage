@@ -5,7 +5,7 @@
   "main": "dist",
   "bin": "dist/index.js",
   "scripts": {
-    "build": "babel src --copy-files --out-dir dist",
+    "build": "babel src --copy-files --out-dir dist --ignore *.test.js,__tests__,__mocks__",
     "watch": "npm run build -- --watch",
     "prepublish": "BABEL_ENV=production npm run build",
     "dev": "babel-node src",
