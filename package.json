@@ -11,7 +11,8 @@
     "dev": "babel-node src",
     "test": "if-env CI=true && npm run ci || jest --watchAll",
     "ci": "jest --ci --coverage && codecov",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "clean": "shx rm -rf dist"
   },
   "files": [
     "dist"
@@ -34,6 +35,7 @@
     "mz": "^2.6.0",
     "pmock": "^0.2.3",
     "semantic-release": "^6.3.6",
+    "shx": "^0.2.2",
     "tmp-promise": "^1.0.3"
   },
   "engines": {
