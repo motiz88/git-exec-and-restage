@@ -38,7 +38,7 @@ export function parseArgs(argv) {
 
 export default main;
 
-// istanbul ignore next: not captured by tests
+/* istanbul ignore next: not captured by tests */
 if (require.main === module) {
   require("./polyfills");
   main(process.argv.slice(2)).catch(e => {

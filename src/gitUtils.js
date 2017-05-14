@@ -33,13 +33,14 @@ async function getAllStaged() {
   try {
     return await getAllStagedFromRevision("HEAD");
   } catch (e) {
-    // istanbul ignore else: simple exception passthrough
+    /* istanbul ignore else: simple exception passthrough */
     if (
       e.stderr &&
       e.stderr.toString().indexOf("fatal: bad revision 'HEAD'") !== -1
     ) {
       return await getAllStagedFromRevision(GIT_EMPTY_HASH);
     }
+    /* istanbul ignore next: simple exception passthrough */
     throw e;
   }
 }
