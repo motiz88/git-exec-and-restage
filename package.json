@@ -23,7 +23,7 @@
     "url": "https://github.com/motiz88/git-exec-and-restage.git"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
+    "babel-cli": "6.24.1",
     "babel-core": "^6.24.1",
     "babel-preset-env": "1",
     "babel-preset-stage-0": "^6.24.1",
