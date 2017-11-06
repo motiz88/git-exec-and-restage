@@ -36,7 +36,7 @@
     "pmock": "^0.2.3",
     "semantic-release": "^6.3.6",
     "shx": "^0.2.2",
-    "tmp-promise": "^1.0.3"
+    "tmp-promise": "^1.0.4"
   },
   "engines": {
     "node": ">=6",
