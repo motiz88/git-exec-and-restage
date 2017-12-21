@@ -45,7 +45,7 @@
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "cross-spawn-promise": "^0.10.1",
-    "semantic-release-cli": "^3.0.3"
+    "semantic-release-cli": "^3.3.0"
   },
   "jest": {
     "testPathIgnorePatterns": [
