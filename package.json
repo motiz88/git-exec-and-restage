@@ -28,7 +28,7 @@
     "babel-preset-env": "1",
     "babel-preset-stage-0": "^6.24.1",
     "codecov": "^2.2.0",
-    "if-env": "^1.0.0",
+    "if-env": "^1.0.3",
     "jest": "^20.0.0",
     "mock-bin": "^2.0.0",
     "mock-git": "^2.0.0",
