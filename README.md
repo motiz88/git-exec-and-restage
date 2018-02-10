@@ -1,5 +1,7 @@
 # git-exec-and-restage
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/motiz88/git-exec-and-restage.svg)](https://greenkeeper.io/)
+
 [![npm](https://img.shields.io/npm/v/git-exec-and-restage.svg)](https://www.npmjs.com/package/git-exec-and-restage)
 [![Travis CI](https://img.shields.io/travis/motiz88/git-exec-and-restage/master.svg)](https://travis-ci.org/motiz88/git-exec-and-restage)
 [![Codecov](https://img.shields.io/codecov/c/github/motiz88/git-exec-and-restage/master.svg)](https://codecov.io/gh/motiz88/git-exec-and-restage/)
