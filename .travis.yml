@@ -8,11 +8,9 @@ node_js:
   - 6
   - 8
   - 10
-install:
-  - yarn install --production=true
-  - yarn install --production=false --ignore-engines
 after_success:
-  - yarn build && yarn semantic-release
+  - yarn build
+  - which npx && npx travis-deploy-once "npx semantic-release@15"
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
