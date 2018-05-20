@@ -1,6 +1,7 @@
 import gitExecAndRestage from "../";
 import TestEnvironment from "TestEnvironment";
 import path from "path";
+import flip from "invert-promise";
 
 describe("git-exec-and-restage", () => {
   const env = new TestEnvironment();
@@ -13,6 +14,12 @@ describe("git-exec-and-restage", () => {
     await env.mockBin("prettier");
     await gitExecAndRestage(["prettier"]);
     expect(await env.log).toMatchSnapshot();
+  });
+  it("throws when command fails", async () => {
+    await env.mockBinError("prettier");
+    const error = await flip(gitExecAndRestage(["prettier"]));
+    expect(error.__isExpectedError).toBe(true);
+    expect(error.message).toMatchSnapshot();
   });
   it("with command and arguments, no files", async () => {
     await env.mockBin("prettier");
