@@ -21,9 +21,9 @@
     "url": "https://github.com/motiz88/git-exec-and-restage.git"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.24.1",
-    "babel-preset-env": "1",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-stage-0": "^6.24.1",
     "codecov": "^2.2.0",
     "if-env": "^1.0.0",
@@ -41,7 +41,7 @@
     "npm": ">=3"
   },
   "dependencies": {
-    "babel-polyfill": "^6.23.0",
+    "core-js": "^2.5.0",
     "cross-spawn-promise": "^0.10.1"
   },
   "jest": {
