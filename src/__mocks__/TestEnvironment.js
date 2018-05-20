@@ -53,6 +53,10 @@ export default class TestEnvironment {
     this._unmock.push(await mockBin(name, "node", this._makeSpyJs(name)));
   }
 
+  async mockBinError(name) {
+    this._unmock.push(await mockBin(name, "false"));
+  }
+
   _makeSpyJs(...prefix) {
     return `
       require("fs").appendFileSync(${JSON.stringify(this._spyLogFile)}, JSON.stringify(${JSON.stringify(prefix)}.concat(process.argv.slice(2))) + "\\n", "utf8");
