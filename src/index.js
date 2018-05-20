@@ -16,7 +16,13 @@ async function main(argv = []) {
     );
   }
   const fullyStaged = await getFullyStaged(files);
-  await spawn(command, commandArgs.concat(files), { stdio: "inherit" });
+  try {
+    await spawn(command, commandArgs.concat(files), { stdio: "inherit" });
+  } catch (e) {
+    e.__isExpectedError = true;
+    e.message = "Error running command: " + e.message;
+    throw e;
+  }
   if (fullyStaged.length) {
     await stageFiles(fullyStaged);
   }
@@ -42,7 +48,7 @@ export default main;
 if (require.main === module) {
   require("./polyfills");
   main(process.argv.slice(2)).catch(e => {
-    if (e instanceof CliError) {
+    if (e instanceof CliError || e.__isExpectedError) {
       process.stderr.write(e.message + "\n");
     } else {
       process.stderr.write(e.stack || e);

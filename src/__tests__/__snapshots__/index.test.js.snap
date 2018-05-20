@@ -2,6 +2,8 @@
 
 exports[`git-exec-and-restage no command, no args and no files staged 1`] = `[Error: Usage: git-exec-and-restage <command> [...command-args --] [...files]]`;
 
+exports[`git-exec-and-restage throws when command fails 1`] = `"Error running command: Exited with status 1"`;
+
 exports[`git-exec-and-restage with command and arguments, no files 1`] = `
 Array [
   "git diff-index --cached --name-only --diff-filter=ACDMRTUXB HEAD --",
