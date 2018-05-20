@@ -8,7 +8,7 @@
     "build":
       "babel src --copy-files --out-dir dist --ignore *.test.js,__tests__,__mocks__",
     "watch": "npm run build -- --watch",
-    "prepublish": "BABEL_ENV=production npm run build",
+    "prepublishOnly": "BABEL_ENV=production npm run build",
     "dev": "babel-node src",
     "test": "if-env CI=true && npm run ci || jest --watchAll",
     "ci": "jest --ci --coverage && codecov",
@@ -32,7 +32,6 @@
     "mock-git": "^2.0.0",
     "mz": "^2.6.0",
     "pmock": "^0.2.3",
-    "semantic-release": "^15.4.1",
     "shx": "^0.2.2",
     "tmp-promise": "^1.0.3"
   },
